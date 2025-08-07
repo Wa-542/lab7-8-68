@@ -54,7 +54,7 @@ FROM Employees
 WHERE [Position] = 'Sale Representative';
 
 -- 12. รหัสพนักงาน ชื่อพนักงาน ชื่อผู้ใช้ รหัสผ่าน ของพนักงานทุกคน
-SELECT EmployeeID, FirstName, UserName, [Password]
+SELECT Title+FirstName+SPACE(1)+LastName EmpName,username, [Password]
 FROM Employees;
 
 -- 13. ชื่อผู้ใช้ และรหัสผ่านของพนักงานที่ชื่อก้องนิรันดร์
@@ -71,3 +71,7 @@ WHERE ReceiptID = 3;
 SELECT ProductID, ProductName, UnitPrice
 FROM Products
 WHERE CategoryID IN (2, 4);
+--หรือ
+SELECT productID,ProductName,UnitPrice FROM	Products WHERE CategoryID = 2
+UNION
+SELECT productID,ProductName,UnitPrice FROM	Products WHERE CategoryID = 4
