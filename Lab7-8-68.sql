@@ -39,23 +39,22 @@ FROM Products
 WHERE ProductName in ('แชมพู','แป้งเด็ก','ดินสอ','ยางลบ');
 
 -- 9. รายละเอียดของสินค้าประเภทเครื่องเขียน
-SELECT p.*
-FROM Products p
-JOIN Categories c ON p.CategoryID = c.CategoryID
-WHERE c.CategoryName = 'เครื่องเขียน';
+SELECT[Description] 
+FROM Categories 
+WHERE CategoryName= 'เครื่องเขียน';
 
 -- 10. รหัสประเภทสินค้า ชื่อประเภท และรายละเอียดของ สินค้าประเภทเครื่องสำอาง
-SELECT CategoryID, CategoryName, Description
+SELECT CategoryID, CategoryName, [Description]
 FROM Categories
 WHERE CategoryName = 'เครื่องสำอาง';
 
 -- 11.คำนำหน้า ชื่อ นามสกุล ของพนักงานที่เป็น Sale Representative
 SELECT Title, FirstName, LastName
 FROM Employees
-WHERE Position = 'Sale Representative';
+WHERE [Position] = 'Sale Representative';
 
 -- 12. รหัสพนักงาน ชื่อพนักงาน ชื่อผู้ใช้ รหัสผ่าน ของพนักงานทุกคน
-SELECT EmployeeID, FirstName, UserName, Password
+SELECT EmployeeID, FirstName, UserName, [Password]
 FROM Employees;
 
 -- 13. ชื่อผู้ใช้ และรหัสผ่านของพนักงานที่ชื่อก้องนิรันดร์
@@ -72,4 +71,3 @@ WHERE ReceiptID = 3;
 SELECT ProductID, ProductName, UnitPrice
 FROM Products
 WHERE CategoryID IN (2, 4);
-
